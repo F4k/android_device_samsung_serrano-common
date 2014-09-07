@@ -140,7 +140,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=/system/lib/libqc-opt.so
 
-#Common build.props
+# Common build props
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.product_ship=true \
     wifi.interface=wlan0 \
