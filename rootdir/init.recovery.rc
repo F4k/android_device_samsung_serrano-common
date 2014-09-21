@@ -25,7 +25,7 @@ on init
     mkdir /data
     mkdir /cache
     mkdir /usbdisk
-    mount tmpfs tmpfs /tmp
+    mount /tmp /tmp tmpfs
 
     chown root shell /tmp
     chmod 0775 /tmp
