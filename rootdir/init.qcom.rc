@@ -465,7 +465,7 @@ service charger /charger
 on property:persist.radio.multisim.config=dsds
     stop ril-daemon
     start ril-daemon
-    start ril-daemon1
+    start ril-daemon2
 
 on property:sys.boot_completed=1
     write /sys/module/rpm_resources/enable_low_power/L2_cache 1
