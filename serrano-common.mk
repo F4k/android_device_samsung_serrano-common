@@ -24,8 +24,6 @@ DEVICE_PACKAGE_OVERLAYS += device/samsung/serrano-common/overlay
 PRODUCT_AAPT_CONFIG := normal xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-PRODUCT_BOOT_JARS += qcmediaplayer
-
 # Boot animation
 TARGET_SCREEN_HEIGHT := 960
 TARGET_SCREEN_WIDTH := 540
@@ -60,6 +58,7 @@ PRODUCT_COPY_FILES += \
 # Ramdisk
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/fstab.qcom:root/fstab.qcom \
+    $(LOCAL_PATH)/rootdir/init.qcom.power.rc:root/init.qcom.power.rc \
     $(LOCAL_PATH)/rootdir/init.qcom.rc:root/init.qcom.rc \
     $(LOCAL_PATH)/rootdir/init.qcom.syspart_fixup.sh:root/init.qcom.syspart_fixup.sh \
     $(LOCAL_PATH)/rootdir/init.qcom.usb.rc:root/init.qcom.usb.rc \
@@ -94,22 +93,24 @@ PRODUCT_PACKAGES += \
     FMRecord
 
 # Torch
-PRODUCT_PACKAGES += Torch
+PRODUCT_PACKAGES += \
+    Torch
 
 # Apollo
 PRODUCT_PACKAGES += Apollo
 
 # Lights
-PRODUCT_PACKAGES += lights.msm8960
-
-# QRNGD
-PRODUCT_PACKAGES += qrngd
-
-# qcmediaplayer
-PRODUCT_PACKAGES += qcmediaplayer
+PRODUCT_PACKAGES += \
+    lights.msm8960
 
 # IR package
-PRODUCT_PACKAGES += consumerir.msm8960
+PRODUCT_PACKAGES += \
+    consumerir.msm8960
+
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
 
 # IR feature permission
 PRODUCT_COPY_FILES += \
@@ -160,6 +161,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.composition.type=c2d \
     ro.opengles.version=196608 \
     af.resampler.quality=4 \
+    mm.enable.qcom_parser=3314291 \
     persist.audio.fluence.mode=endfire \
     persist.audio.vr.enable=false \
     persist.audio.handset.mic=digital \
