@@ -154,7 +154,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.radio.fill_eons=1 \
     persist.radio.prefer_spn=0 \
     persist.data.netmgrd.qos.enable=false \
-    ro.sf.lcd_density=230 \
+    ro.sf.lcd_density=240 \
     ro.ril.transmitpower=true \
     ro.warmboot.capability=1 \
     ro.qualcomm.cabl=0 \
@@ -196,6 +196,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.secure=0 \
     ro.debuggable=1
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.product.locale.language=en \
+    ro.product.locale.region=GB
 
 # call common msm8930
 $(call inherit-product, device/samsung/msm8930-common/msm8930.mk)
