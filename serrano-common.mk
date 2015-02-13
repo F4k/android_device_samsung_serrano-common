@@ -112,6 +112,11 @@ PRODUCT_PACKAGES += \
     ebtables \
     ethertypes
 
+# F2FS
+PRODUCT_PACKAGES += \
+    fsck.f2fs \
+    mkfs.f2fs
+
 # IR feature permission
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:system/etc/permissions/android.hardware.consumerir.xml
@@ -124,13 +129,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     S4MiniSettings \
     SamsungServiceMode
-
-# F2FS filesystem
-PRODUCT_PACKAGES += \
-    mkfs.f2fs \
-    fsck.f2fs \
-    fibmap.f2fs \
-    f2fstat
 
 # Set default USB interface
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -149,7 +147,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.ril.hsxpa=1 \
     ro.ril.gprsclass=10 \
     persist.radio.add_power_save=1 \
-    persist.radio.apm_sim_not_pwdn=1 \
     persist.eons.enabled=true \
     persist.radio.fill_eons=1 \
     persist.radio.prefer_spn=0 \
@@ -190,7 +187,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.timed.enable=true \
     persist.audio.lowlatency.rec=false \
     audio.gapless.playback.disable=true \
-    qcom.hw.aac.encoder=true \
+    qcom.hw.aac.encoder=false \
+    audio.offload.disable=1 \
     ro.config.max_starting_bg=8
 
 # For userdebug builds
