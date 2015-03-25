@@ -146,7 +146,7 @@ public class SerranoRIL extends RIL {
             dc.isMT = (0 != p.readInt());
             dc.als = p.readInt();
             voiceSettings = p.readInt();
-            dc.isVoice = (0 != voiceSettings);
+            dc.isVoice = (0 == voiceSettings) ? false : true;
             boolean isVideo = (0 != p.readInt());   // Samsung CallDetails
             int call_type = p.readInt();            // Samsung CallDetails
             int call_domain = p.readInt();          // Samsung CallDetails
@@ -156,8 +156,7 @@ public class SerranoRIL extends RIL {
             int np = p.readInt();
             dc.numberPresentation = DriverCall.presentationFromCLIP(np);
             dc.name = p.readString();
-            // according to ril.h, namePresentation should be handled as numberPresentation;
-            dc.namePresentation = DriverCall.presentationFromCLIP(p.readInt());
+            dc.namePresentation = p.readInt();
             int uusInfoPresent = p.readInt();
             if (uusInfoPresent == 1) {
                 dc.uusInfo = new UUSInfo();
