@@ -36,7 +36,6 @@ TARGET_KERNEL_CONFIG         := cyanogen_serrano_usa_defconfig
 else
 TARGET_KERNEL_CONFIG         := cyanogen_serrano_defconfig
 endif
-TARGET_KERNEL_SELINUX_CONFIG := selinux_defconfig
 
 TARGET_BOOTLOADER_BOARD_NAME := MSM8960
 
@@ -63,6 +62,7 @@ BOARD_USES_SEPERATED_HEADSET_MIC := true
 BOARD_USES_SEPERATED_VOICE_SPEAKER := true
 BOARD_USES_SEPERATED_VOIP := true
 QCOM_CSDCLIENT_ENABLED := false
+QCOM_OUTPUT_FLAGS_ENABLED := false
 
 # Build using -O3 Optimizations
 USE_O3_OPTIMIZATIONS := true
